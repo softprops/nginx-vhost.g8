@@ -1,6 +1,6 @@
 server {
   listen 80;
-  server_name $server_name;
+  server_name $server_name$;
   # Add expires header for static content
   location ~* \.(ico|css|js|gif|jp?g|png)(\?[0-9]+)?{ 
     if (-f $request_filename) {
@@ -10,7 +10,7 @@ server {
   }
   # Proxy application
   location /  {
-    proxy_pass              $proxy_pass;
+    proxy_pass              $proxy_pass$;
     proxy_redirect          off; 
     proxy_set_header        X-Real-IP $remote_addr;
     proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
